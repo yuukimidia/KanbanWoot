@@ -1,5 +1,14 @@
 import { debugLog } from './debug';
 
+const CHATWOOT_URL = window._env_?.REACT_APP_CHATWOOT_URL;
+const CHATWOOT_TOKEN = window._env_?.REACT_APP_CHATWOOT_TOKEN;
+const ACCOUNT_ID = window._env_?.REACT_APP_CHATWOOT_ACCOUNT_ID;
+
+const chatwootHeaders = {
+  'Content-Type': 'application/json',
+  'api_access_token': CHATWOOT_TOKEN,
+};
+
 async function chatwootFetch(endpoint, options = {}) {
   const url = `${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}${endpoint}`;
   debugLog('chatwootFetch', url, options);
